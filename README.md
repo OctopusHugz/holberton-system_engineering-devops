@@ -1,0 +1,1 @@
+This project is focused on learning the shell basics.
