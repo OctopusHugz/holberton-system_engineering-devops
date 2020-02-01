@@ -1,0 +1,1 @@
+This project focuses on learning the basics of shell redirections with the stdin and stdout.
