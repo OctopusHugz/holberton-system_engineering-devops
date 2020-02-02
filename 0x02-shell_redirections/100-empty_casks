@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -lRa | find . -empty | cut -b 3- | ls -1 | echo
+find . -empty | cut -b 3- | ls -1 | echo
