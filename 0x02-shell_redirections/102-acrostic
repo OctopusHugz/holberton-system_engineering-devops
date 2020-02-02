@@ -1,2 +1,2 @@
 #!/bin/bash
-tr -d [:punct:] | tr -d [:blank:] | cut -c 1 | tr -d '\n' && echo
+tr -d [:punct:],[:blank:] | cut -c 1 | tr -d '\n' && echo
