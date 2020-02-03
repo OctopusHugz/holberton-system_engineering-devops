@@ -1,0 +1,1 @@
+This project deals with learning shell variables and expansions.
