@@ -1,2 +1,2 @@
 #!/bin/bash
-perl -lne '$.%2 or print;'
+paste -sd "\t\n" - | cut -f 1
