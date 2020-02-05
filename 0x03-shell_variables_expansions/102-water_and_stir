@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%o\n" $(($(5#(tr "$WATER" "01234")) + $(5#(tr "$STIR" "01234")))) | tr "behlnort" "01234567"
+printf "%o\n" $(($(5#$(tr "$WATER" "01234"))) + $(5#$(tr "$STIR" "01234")))) | tr "behlnort" "01234567"
