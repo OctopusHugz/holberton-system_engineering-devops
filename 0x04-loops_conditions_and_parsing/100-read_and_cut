@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 # This script displays the content of the file /etc/passwd
-echo ""
+file="/etc/passwd"
+while read line
+do
+	echo "$line"
+done < "$file"
