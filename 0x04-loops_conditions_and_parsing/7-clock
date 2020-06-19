@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 # This script prints the hours and mintues of the clock
-i="0"
-j="1"
-# Reset j before each loop
 for ((i = 0; i < 13; i++))
 	do
 	echo "Hour: $i"
