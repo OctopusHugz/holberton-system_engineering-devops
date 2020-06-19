@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 # This script prints the hours and mintues of the clock
-for ((i = 0; i < 13; i++))
+i="0"
+while ((i < 13))
 	do
 	echo "Hour: $i"
-	for ((j = 1; j < 60; j++))
+	j="1"
+	while ((j < 60))
 		do
 		echo "$j"
-		done
-		done
+		j=$((j + 1))
+	done
+	i=$((i + 1))
+	done
