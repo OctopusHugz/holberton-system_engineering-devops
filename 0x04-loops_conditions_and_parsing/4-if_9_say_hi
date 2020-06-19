@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script prints the string "Holberton School" 10 times using a while loop, but prints "Hi" on the 9th iteration
+i=0
+while ((i < 10))
+do
+if ((i == 8))
+then echo "Hi"
+else echo "Holberton School"
+fi
+i=$((i + 1))
+done
