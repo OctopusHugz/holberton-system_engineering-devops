@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script displays lines containing the bash from a list of current processes
+# shellcheck disable=SC2009
+ps -eHo user,pid,pcpu,pmem,vsz,rss,tty,stat,start_time,time,command | grep "bash"
