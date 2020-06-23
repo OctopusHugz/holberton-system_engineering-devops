@@ -2,9 +2,9 @@
 # This script prints "To infinity and beyond" while trapping certain signals and printing different strings for each
 file="/var/run/holbertonscript.pid"
 pgrep bash | tail -1 > $file
-trap "echo I hate the kill command" SIGTERM
+trap "echo I hate the kill command & rm -rf $file & exit" SIGTERM
 trap "echo Y U no love me?!" SIGINT
-trap 'rm -rf $file & exit' SIGQUIT SIGTERM
+trap 'rm -rf $file & exit' SIGQUIT
 while true
 do
 	echo "To infinity and beyond"
