@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
 # This script kills the infinite loop of the to infinity and beyond script
-SCPID=$(pgrep bash | head -1)
-kill "$SCPID"
+kill "$(pgrep bash | head -1)"
