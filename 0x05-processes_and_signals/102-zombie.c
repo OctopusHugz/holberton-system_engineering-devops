@@ -1,6 +1,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 /**
  * main - this function creates 5 zombie processes
