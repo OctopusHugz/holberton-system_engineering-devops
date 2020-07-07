@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This script is answering a multiple choice question with a number
+netstat -lp
