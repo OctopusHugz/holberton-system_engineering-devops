@@ -1,6 +1,7 @@
 # This manifest creates a file
-file { '/tmp/holberton':
-  ensure  => 'present',
+file { 'holberton':
+  ensure  => file,
+  path    => '/tmp/holberton',
   mode    => '0744',
   owner   => 'www-data',
   group   => 'www-data',
