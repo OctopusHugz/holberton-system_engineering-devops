@@ -4,5 +4,5 @@ if [ "$#" -lt 3 ]
 else
 	AT=@
 	SIP=$3$AT$2
-	scp -i "$4" "$1" "$SIP:~"
+	scp -i "$4" -o StrictHostKeyChecking=no "$1" "$SIP:~"
 fi
