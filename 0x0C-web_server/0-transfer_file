@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+if [ "$#" -lt 3 ]
+	then echo 'Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY'
+else
+	AT=@
+	SIP=$3$AT$2
+	scp -i "$4" "$1" "$SIP:~"
+fi
