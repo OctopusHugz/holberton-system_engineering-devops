@@ -3,8 +3,7 @@
 apt-get update
 apt-get -y install nginx
 cd /var/www/html
-rm index.*html
 echo 'Holberton School is cool' > index.html
-service nginx restart
 cd /etc/nginx/sites-available
 sed -i '36a \\trewrite ^/redirect_me$ https://www.youtube.com/watch?v=F0ddL6VaAVs permanent;' default
+service nginx restart
