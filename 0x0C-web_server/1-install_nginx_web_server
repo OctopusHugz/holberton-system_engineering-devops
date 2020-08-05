@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+ssh -i ~/.ssh/holberton ubuntu@35.231.246.19
+sudo -i
+apt-get update
+apt-get -y install nginx
+cd /var/www/html
+rm index.*html
+echo 'Holberton School is cool' > index.html
+exit
