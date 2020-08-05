@@ -2,6 +2,7 @@
 # This script Configures an Nginx server so that /redirect_me is redirecting to another page
 apt-get update
 apt-get -y install nginx
+ufw allow 'Nginx HTTP'
 cd /var/www/html
 echo 'Holberton School is cool' > index.html
 cd /etc/nginx/sites-available
