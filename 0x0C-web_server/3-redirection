@@ -5,5 +5,5 @@ apt-get -y install nginx
 cd /var/www/html
 echo 'Holberton School is cool' > index.html
 cd /etc/nginx/sites-available
-sed -i '36a \\trewrite ^/redirect_me https://www.youtube.com/watch?v=F0ddL6VaAVs permanent;' default
+sed -i '36a \\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' default
 service nginx restart
