@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# This script configures an Nginx server to have a custom 404 page that contains the string Ceci n'est pas une page
+apt-get update
+apt-get -y install nginx
+cd /var/www/html
+echo 'Holberton School is cool' > index.html
+echo Ceci n\'est pas une page > 404.html
+cd /etc/nginx/sites-available
+sed -i '36a \\trewrite ^/redirect_me https://www.youtube.com/watch?v=F0ddL6VaAVs permanent;' default
+sed -i '37a \\terror_page 404 = /404.html;' default
+service nginx restart
