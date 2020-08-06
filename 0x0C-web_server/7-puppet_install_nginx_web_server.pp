@@ -1,9 +1,6 @@
 # This manifest configures a server specifically
-$line = "\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
-
-exec { 'install stdlib':
-  command => 'sudo puppet module install puppetlabs-stdlib -i /etc/puppet/modules'
-}
+#$line = "\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+$command = "sed -i '36a \\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default"
 
 package { 'nginx':
   ensure   => 'installed',
@@ -16,10 +13,13 @@ file { 'index.html':
   content => 'Holberton School is cool'
 }
 
-file_line { '301 redirection':
-  path  => '/etc/nginx/sites-available/default',
-  line  => $line,
-  after => '/var/www/html;'
+#file_line { '301 redirection':
+#  path  => '/etc/nginx/sites-available/default',
+#  line  => $line,
+#  after => '/var/www/html;'
+#}
+exec { '301 redirect':
+  command => $command
 }
 
 service { 'nginx':
