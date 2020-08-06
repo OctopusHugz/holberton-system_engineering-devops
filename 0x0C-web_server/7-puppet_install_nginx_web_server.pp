@@ -1,4 +1,5 @@
 # This manifest configures a server specifically
+include stdlib
 $line = "\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
 package { 'nginx':
   ensure   => 'installed',
