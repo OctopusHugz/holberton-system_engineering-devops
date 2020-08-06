@@ -4,6 +4,10 @@ package { 'nginx':
   provider => 'apt'
 }
 
+service { 'nginx':
+  ensure => 'running'
+}
+
 file { 'index.html':
   ensure  => file,
   path    => '/var/www/html/index.html',
