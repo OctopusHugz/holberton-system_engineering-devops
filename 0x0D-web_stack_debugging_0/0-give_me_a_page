@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 # This script debugs a broken webstack by installing nginx and fixing root
-sudo -i
-apt-get update
-apt-get -y install nginx
-cd /etc/nginx/sites-available
-sed -i '24a \\troot /var/www/html;' default
-sed -i '24d' default
-service nginx restart
-exit
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo cd /etc/nginx/sites-available
+sudo sed -i '24a \\troot /var/www/html;' default
+sudo sed -i '24d' default
+sudo service nginx restart
