@@ -18,5 +18,5 @@ file_line { '301 redirection':
 }
 
 service { 'nginx':
-  ensure  => 'running'
+  restart => ''
 }
