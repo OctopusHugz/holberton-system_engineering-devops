@@ -18,8 +18,7 @@ file { 'index.html':
 #  line  => $line,
 #  after => '/var/www/html;'
 #}
-exec { '301 redirect':
-  command => $command
+exec { '/usr/bin/env sed -i "36a \\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default':
 }
 
 service { 'nginx':
