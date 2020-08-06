@@ -1,7 +1,7 @@
 # This manifest configures a server specifically
 $line = "\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
 
-package { 'stdlib':
+package { 'puppetlabs-stdlib':
   ensure => 'installed',
   source => 'https://forge.puppet.com/v3/files/puppetlabs-stdlib-6.3.0.tar.gz'
 }
