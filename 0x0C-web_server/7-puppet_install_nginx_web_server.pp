@@ -16,6 +16,6 @@ file { 'index.html':
 
 file_line { '301 redirection':
   path  => '/etc/nginx/sites-available/default',
-  line  => '    rewrite ^/redirect_me 301 https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
-  after => '/var/www/html;'
+  line  => '    location /redirect_me {\n\treturn 301 https://www.youtube.com/watch?v=F0ddL6VaAVs;\n\t}',
+  after => 'server_name _;'
 }
