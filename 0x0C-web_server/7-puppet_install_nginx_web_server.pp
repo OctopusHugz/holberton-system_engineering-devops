@@ -1,5 +1,5 @@
 # This manifest configures a server specifically
-$line = "\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=F0ddL6VaAVs;\n\t}"
+$line = "\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
 package { 'nginx':
   ensure   => 'installed',
   provider => 'apt'
@@ -18,5 +18,5 @@ file { 'index.html':
 file_line { '301 redirection':
   path  => '/etc/nginx/sites-available/default',
   line  => $line,
-  after => 'server_name _;'
+  after => '/var/www/html;'
 }
