@@ -16,6 +16,8 @@ file { 'index.html':
 
 file_line { '301 redirection':
   path  => '/etc/nginx/sites-available/default',
-  line  => '    location /redirect_me {\n\treturn 301 https://www.youtube.com/watch?v=F0ddL6VaAVs;\n\t}',
+  line  => '    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=F0ddL6VaAVs;
+        }',
   after => 'server_name _;'
 }
