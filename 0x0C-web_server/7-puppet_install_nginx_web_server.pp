@@ -1,10 +1,8 @@
 # This manifest configures a server specifically
 $line = "\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
 
-package { 'stdlib':
-  ensure => 'installed',
-  path   => '/etc/puppet/modules',
-  source => 'https://forge.puppet.com/v3/files/puppetlabs-stdlib-6.3.0.tar.gz'
+exec { 'install stdlib':
+  command => 'sudo puppet module install puppetlabs-stdlib -i /etc/puppet/modules'
 }
 
 package { 'nginx':
