@@ -3,6 +3,7 @@ $line = "\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 per
 
 package { 'puppetlabs-stdlib':
   ensure => 'installed',
+  path   => '/etc/puppet/modules'
   source => 'https://forge.puppet.com/v3/files/puppetlabs-stdlib-6.3.0.tar.gz'
 }
 
