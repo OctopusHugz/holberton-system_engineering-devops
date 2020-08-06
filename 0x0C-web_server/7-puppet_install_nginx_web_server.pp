@@ -1,18 +1,11 @@
 # This manifest configures a server specifically
-package { 'apache2.2-common':
-    ensure => 'absent',
-}
-
 package { 'nginx':
   ensure   => 'installed',
-  provider => 'apt',
-  require => Package['apache2.2-common']
+  provider => 'apt'
 }
 
-
 service { 'nginx':
-  ensure  => 'running',
-  require => Package['nginx']
+  ensure  => 'running'
 }
 
 file { 'index.html':
