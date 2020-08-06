@@ -18,5 +18,6 @@ file_line { '301 redirection':
 }
 
 service { 'nginx':
-  restart => ''
+  ensure  => 'running',
+  restart => 'sudo service nginx restart'
 }
