@@ -1,5 +1,11 @@
 # This manifest configures a server specifically
-$command = "/usr/bin/env sed -i '38a add_header X-Served-By $host;' /etc/nginx/sites-available/default"
+$update = "/usr/bin/env apt-get -y update"
+$command = "/usr/bin/env sed -i '38a add_header X-Served-By $hostname;' /etc/nginx/sites-available/default"
+
+exec { 'apt-get update':
+  command => $update,
+  before  => Package['nginx']
+}
 
 package { 'nginx':
   ensure   => 'installed',
