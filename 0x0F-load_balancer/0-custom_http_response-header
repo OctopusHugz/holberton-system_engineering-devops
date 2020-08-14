@@ -5,8 +5,8 @@ apt-get -y install nginx
 cd /var/www/html
 echo 'Holberton School is cool' > index.html
 echo Ceci n\'est pas une page > 404.html
-cd /etc/nginx/sites-available
-sed -i '36a \\trewrite ^/redirect_me https://www.youtube.com/watch?v=F0ddL6VaAVs permanent;' default
-sed -i '37a \\terror_page 404 =404 /404.html;' default
-sed -i '14a \\tadd_header X-Served-By '"${HOSTNAME}"';' /etc/nginx/nginx.conf
+cd /etc/nginx
+sed -i '36a \\trewrite ^/redirect_me https://www.youtube.com/watch?v=F0ddL6VaAVs permanent;' sites-available/default
+sed -i '37a \\terror_page 404 =404 /404.html;' sites-available/default
+sed -i '14a \\tadd_header X-Served-By '"${HOSTNAME}"';' nginx.conf
 service nginx restart
