@@ -19,7 +19,8 @@ file { 'index.html':
 }
 
 exec { 'custom HTTP header':
-  command => $command
+  command => $command,
+  require => Package['nginx']
 }
 
 service { 'nginx':
