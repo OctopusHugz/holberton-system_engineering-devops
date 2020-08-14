@@ -3,8 +3,7 @@ $update = '/usr/bin/env apt-get -y update'
 $command = "/usr/bin/env sed -i '14a add_header X-Served-By ${hostname};' /etc/nginx/nginx.conf"
 
 exec { 'apt-get update':
-  command => $update,
-  before  => Package['nginx']
+  command => $update
 }
 
 -> package { 'nginx':
@@ -13,15 +12,13 @@ exec { 'apt-get update':
 }
 
 -> exec { 'custom HTTP header':
-  command => $command,
-  require => Package['nginx']
+  command => $command
 }
 
 -> file { 'index.html':
   ensure  => file,
   path    => '/var/www/html/index.html',
-  content => 'Holberton School is cool',
-  require => Package['nginx']
+  content => 'Holberton School is cool'
 }
 -> service { 'nginx':
   ensure  => 'running',
