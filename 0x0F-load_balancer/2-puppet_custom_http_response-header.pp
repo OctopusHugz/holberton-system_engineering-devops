@@ -1,5 +1,5 @@
 # This manifest configures a server specifically
-$command = "/usr/bin/env sed -i '14a add_header X-Served-By '${HOSTNAME}';' /etc/nginx/sites-available/default"
+$command = "/usr/bin/env sed -i '38a add_header X-Served-By $hostname;' /etc/nginx/sites-available/default"
 
 package { 'nginx':
   ensure   => 'installed',
