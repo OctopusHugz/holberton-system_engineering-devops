@@ -10,13 +10,10 @@ sed -i '5a ENABLED=1' haproxy
 sed -i '6a \\n' haproxy
 cd /etc/haproxy
 sed -i '37a \\n' haproxy.cfg
-sed -i '38a frontend octopushugs.tech' haproxy.cfg
+sed -i '38a listen hbnb' haproxy.cfg
 sed -i '39a \\tbind *:80' haproxy.cfg
 sed -i '40a \\tmode http' haproxy.cfg
-sed -i '41a \\tdefault_backend web-backend' haproxy.cfg
-sed -i '42a \\n' haproxy.cfg
-sed -i '43a backend web-backend' haproxy.cfg
-sed -i '44a \\tbalance roundrobin' haproxy.cfg
-sed -i '45a \\tserver 1670-web-01 35.231.246.19:80 check' haproxy.cfg
-sed -i '46a \\tserver 1670-web-02 34.227.48.93:80 check' haproxy.cfg
+sed -i '41a \\tbalance roundrobin' haproxy.cfg
+sed -i '42a \\tserver 1670-web-01 35.231.246.19:80 check' haproxy.cfg
+sed -i '43a \\tserver 1670-web-02 34.227.48.93:80 check' haproxy.cfg
 service haproxy restart
