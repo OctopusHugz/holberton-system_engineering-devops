@@ -11,7 +11,7 @@ sed -i '6a \\n' haproxy
 cd /etc/haproxy
 sed -i '37a \\n' haproxy.cfg
 sed -i '38a listen hbnb' haproxy.cfg
-sed -i '39a \\tbind *:80' haproxy.cfg
+sed -i '39a \\tbind 10.250.17.227:80' haproxy.cfg
 sed -i '40a \\tmode http' haproxy.cfg
 sed -i '41a \\tbalance roundrobin' haproxy.cfg
 sed -i '42a \\tserver 1670-web-01 35.231.246.19:80 check' haproxy.cfg
