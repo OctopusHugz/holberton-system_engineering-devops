@@ -1,6 +1,6 @@
 # This manifest configures a server specifically
 $update = "/usr/bin/env apt-get -y update"
-$command = "/usr/bin/env sed -i '38a add_header X-Served-By $hostname;' /etc/nginx/sites-available/default"
+$command = "/usr/bin/env sed -i '14a add_header X-Served-By $hostname;' /etc/nginx/nginx.conf"
 
 exec { 'apt-get update':
   command => $update,
