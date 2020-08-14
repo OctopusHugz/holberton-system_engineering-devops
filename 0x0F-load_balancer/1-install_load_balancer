@@ -6,9 +6,8 @@ apt-get update
 apt-get -y install haproxy=1.8.\*
 cd /etc/default
 sed -i '4a \\n' haproxy
-sed -i '5a # Enabling haproxy to be managed by init script' haproxy
-sed -i '6a ENABLED=1' haproxy
-sed -i '7a \\n' haproxy
+sed -i '5a ENABLED=1' haproxy
+sed -i '6a \\n' haproxy
 cd /etc/haproxy
 sed -i '37a \\n' haproxy.cfg
 sed -i '38a listen hbnb' haproxy.cfg
