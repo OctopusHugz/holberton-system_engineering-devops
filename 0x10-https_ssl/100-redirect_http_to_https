@@ -7,7 +7,8 @@ global
         user haproxy
         group haproxy
         daemon
-
+		maxsslconn 256
+        tune.ssl.default-dh-param 2048
         ca-base /etc/ssl/certs
         crt-base /etc/ssl/private
 
@@ -30,11 +31,12 @@ defaults
         errorfile 502 /etc/haproxy/errors/502.http
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
-
+		# option forwardfor
+   		# option http-server-close
 listen hbnb
         bind *:80
 		bind *:443 ssl crt /etc/ssl/private/0000_key-certbot.pem
-		redirect scheme https if !{ ssl_fc }
+		redirect scheme https code 301 if !{ ssl_fc }
         mode http
         balance roundrobin
         server 1670-web-01 35.231.246.19:80 check
