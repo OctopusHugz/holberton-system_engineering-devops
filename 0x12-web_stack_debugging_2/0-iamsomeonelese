@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This script runs whoami as another user
+sudo -su $1
+echo whoami
+exit
