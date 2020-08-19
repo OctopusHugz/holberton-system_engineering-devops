@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 # This script runs whoami as another user
-sudo -su $1
-echo whoami
-exit
+if id "$1" >/dev/null 2>&1; then
+    :
+else
+    useradd "$1"
+fi
+sudo -su "$1" whoami
