@@ -1,2 +1,5 @@
-ufw allow proto tcp from any to any port 22,80,443
-ufw enable
+sudo ufw allow 22
+sudo ufw allow 80
+sudo ufw allow 443
+sudo ufw default deny incoming
+sudo ufw enable
