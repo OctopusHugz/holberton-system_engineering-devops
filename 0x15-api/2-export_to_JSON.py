@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This module gathers data from an API and exports it to a CSV file"""
+"""This module gathers data from an API and exports it to a JSON file"""
 if __name__ == "__main__":
     import json
     import requests
