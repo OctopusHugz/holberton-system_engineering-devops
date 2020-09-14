@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """This module gathers data from an API"""
 if __name__ == "__main__":
-    from sys import argv
     import requests
+    from sys import argv
     emp_id = argv[1]
     base_url = "https://jsonplaceholder.typicode.com/"
     user_url = "{}users/{}".format(base_url, emp_id)
@@ -17,6 +17,6 @@ if __name__ == "__main__":
             td_done += 1
             task_list.append(todos.get('title'))
     print("Employee {} is done with tasks({:d}/{:d}):".format(emp_name,
-                                                                td_done,
-                                                                td_length))
+                                                              td_done,
+                                                              td_length))
     [print("\t {}".format(task)) for task in task_list]
