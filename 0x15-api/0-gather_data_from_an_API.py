@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """This module gathers data from an API"""
 if __name__ == "__main__":
-    import requests
     from sys import argv
+    import requests
     emp_id = argv[1]
     base_url = "https://jsonplaceholder.typicode.com/"
     user_url = "{}users/{}".format(base_url, emp_id)
