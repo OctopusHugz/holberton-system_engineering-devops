@@ -10,9 +10,6 @@ if __name__ == "__main__":
     emp_uname = requests.get(user_url).json().get('username')
     td_url = "{}/todos".format(user_url)
     td_request_json = requests.get(td_url).json()
-    td_length = len(td_request_json)
-    td_done = 0
-    task_list = []
     filename = emp_id + ".csv"
     with open(filename, "w") as f:
         td_writer = csv.writer(f, quotechar='"', quoting=csv.QUOTE_ALL)
