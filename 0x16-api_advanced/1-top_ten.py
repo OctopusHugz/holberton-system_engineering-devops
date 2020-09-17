@@ -12,6 +12,7 @@ def top_ten(subreddit):
     data = req.json().get('data')
     if data is None:
         print(None)
-    children = data.get('children')
-    for child in children:
-        print(child.get('data').get('title'))
+    else:
+        children = data.get('children')
+        for child in children:
+            print(child.get('data').get('title'))
