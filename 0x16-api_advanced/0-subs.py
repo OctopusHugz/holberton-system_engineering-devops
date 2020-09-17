@@ -10,7 +10,7 @@ def number_of_subscribers(subreddit):
         "https://www.reddit.com/r/{}/about/.json".format(subreddit),
         headers=user_agent, allow_redirects=False)
     data = req.json().get('data')
+    if data is None:
+        return 0
     subs = data.get('subscribers')
-    if subs is None:
-        subs = 0
     return subs
