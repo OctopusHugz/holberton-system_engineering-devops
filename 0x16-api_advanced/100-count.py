@@ -21,7 +21,10 @@ def count_words(subreddit, word_list, count=0, after="", title_dict={}, word_cou
     except:
         return None
     after = data.get('after')
-    children = data.get('children')
+    try:
+        children = data.get('children')
+    except:
+        return None
     for child in children:
         title = child.get('data').get('title').lower().split()
         for word in word_list:
