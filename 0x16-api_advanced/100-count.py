@@ -22,21 +22,31 @@ def count_words(subreddit, word_list, count=0, after="", hot_list=[], title_dict
     after = data.get('after')
     children = data.get('children')
     for child in children:
-        title = child.get('data').get('title').lower()
+        title = child.get('data').get('title').lower().split()
         for word in word_list:
-            if word in title:
-                hot_list.append(title)
-                word_count = title_dict.get(word)
-                if word_count is None:
-                    word_count = 1
-                else:
-                    word_count += 1
+            word = word.lower()
+            word_count += title.count(word)
+            if word_count > 0:
                 title_dict.update({word: word_count})
+            # print(title_dict)
+        # for word in word_list:
+        #     word = word.lower()
+        #     if word in title:
+        #         hot_list.append(title)
+        #         word_count = title_dict.get(word)
+        #         if word_count is None:
+        #             word_count = 1
+        #         else:
+        #             word_count += 1
+        #         title_dict.update({word: word_count})
     count += len(children)
     if after is not None:
         count_words(subreddit, word_list, count, after,
                     hot_list, title_dict, word_count)
     else:
+        # dict_copy = title_dict.copy()
         for keyword in title_dict:
+            # max_title = ""
             print("{}: {:d}".format(keyword, title_dict.get(keyword)))
+    # print(hot_list)
     return hot_list
