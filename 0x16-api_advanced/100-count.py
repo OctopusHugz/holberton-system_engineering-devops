@@ -3,8 +3,8 @@
 import requests
 
 
-def recurse(subreddit, hot_list=[], count=0, after=""):
-    """Prints the titles of the first 10 hot posts listed for a subreddit"""
+def count_words(subreddit, word_list, count=0, after="", hot_list=[], title_dict={}, word_count=0):
+    """Prints a sorted count of given keywords listed for a subreddit"""
     user_agent = {'User-agent': 'Safari/605.1.15'}
     if not after:
         req = requests.get(
@@ -22,8 +22,21 @@ def recurse(subreddit, hot_list=[], count=0, after=""):
     after = data.get('after')
     children = data.get('children')
     for child in children:
-        hot_list.append(child.get('data').get('title'))
+        title = child.get('data').get('title').lower()
+        for word in word_list:
+            if word in title:
+                hot_list.append(title)
+                word_count = title_dict.get(word)
+                if word_count is None:
+                    word_count = 1
+                else:
+                    word_count += 1
+                title_dict.update({word: word_count})
     count += len(children)
     if after is not None:
-        recurse(subreddit, hot_list, count, after)
+        count_words(subreddit, word_list, count, after,
+                    hot_list, title_dict, word_count)
+    else:
+        for keyword in title_dict:
+            print("{}: {:d}".format(keyword, title_dict.get(keyword)))
     return hot_list
