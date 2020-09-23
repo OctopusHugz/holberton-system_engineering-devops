@@ -17,13 +17,10 @@ def count_words(subreddit, word_list, count=0, after="", title_dict={}, word_cou
                 subreddit, after),
             headers=user_agent, allow_redirects=False)
     data = req.json().get('data')
-    if data is None:
+    try:
+        data = req.json().get('data')
+    except:
         return None
-    # try:
-    #     data = req.json().get('data')
-    # except Exception as e:
-    #     print(e)
-    #     return None
     after = data.get('after')
     children = data.get('children')
     for child in children:
