@@ -16,8 +16,9 @@ def count_words(subreddit, word_list, count=0, after="", hot_list=[], title_dict
             "https://www.reddit.com/r/{}/hot/.json?limit=100&after={}".format(
                 subreddit, after),
             headers=user_agent, allow_redirects=False)
-    data = req.json().get('data')
-    if data is None:
+    try:
+        data = req.json().get('data')
+    except:
         return None
     after = data.get('after')
     children = data.get('children')
