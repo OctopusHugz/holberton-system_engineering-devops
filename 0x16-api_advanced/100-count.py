@@ -30,7 +30,7 @@ def count_words(subreddit, word_list, count=0, after="", hot_list=[], title_dict
             if word_count is None:
                 word_count = 0
             word_count += title.count(word)
-            if word_count > 0 and word in title:
+            if word_count > 0:
                 title_dict.update({word: word_count})
     count += len(children)
     if after is not None:
@@ -39,15 +39,13 @@ def count_words(subreddit, word_list, count=0, after="", hot_list=[], title_dict
     else:
         values = title_dict.values()
         values = list(values)
-        # for value in values:
-        #     max_value = max(values)
-        #     if value == max_value:
-        #         print("{}: {:d}".format(key, title_dict.get(key)))
         while len(values) > 0:
             for key, value in title_dict.items():
                 if len(values) > 1:
                     max_value = max(values)
-                elif len(values) == 1:
+                # elif len(values) == 1:
+                #     max_value = values[0]
+                else:
                     max_value = values[0]
                 if value == max_value:
                     print("{}: {:d}".format(key, title_dict.get(key)))
