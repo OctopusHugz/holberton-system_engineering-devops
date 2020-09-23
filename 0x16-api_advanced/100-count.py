@@ -3,7 +3,7 @@
 import requests
 
 
-def count_words(subreddit, word_list, count=0, after="", hot_list=[], title_dict={}, word_count=0):
+def count_words(subreddit, word_list, count=0, after="", title_dict={}, word_count=0):
     """Prints a sorted count of given keywords listed for a subreddit"""
     user_agent = {'User-agent': 'OctopusHugs/605.1.15'}
     if not after:
@@ -19,7 +19,7 @@ def count_words(subreddit, word_list, count=0, after="", hot_list=[], title_dict
     try:
         data = req.json().get('data')
     except:
-        return None
+        return
     after = data.get('after')
     children = data.get('children')
     for child in children:
@@ -34,8 +34,7 @@ def count_words(subreddit, word_list, count=0, after="", hot_list=[], title_dict
                 title_dict.update({word: word_count})
     count += len(children)
     if after is not None:
-        count_words(subreddit, word_list, count, after,
-                    hot_list, title_dict, word_count)
+        count_words(subreddit, word_list, count, after, title_dict, word_count)
     else:
         values = title_dict.values()
         values = list(values)
@@ -43,12 +42,9 @@ def count_words(subreddit, word_list, count=0, after="", hot_list=[], title_dict
             for key, value in title_dict.items():
                 if len(values) > 1:
                     max_value = max(values)
-                # elif len(values) == 1:
-                #     max_value = values[0]
                 else:
                     max_value = values[0]
                 if value == max_value:
                     print("{}: {:d}".format(key, title_dict.get(key)))
                     index = values.index(max_value)
                     del values[index]
-    return hot_list
