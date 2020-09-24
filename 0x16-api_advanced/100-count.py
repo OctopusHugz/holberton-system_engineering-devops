@@ -41,6 +41,7 @@ def count_words(subreddit, word_list, count=0, after="", title_dict={},
         values = list(values)
         while len(values) > 0:
             for key, value in title_dict.items():
+                key_list = []
                 if len(values) > 1:
                     max_value = max(values)
                 elif len(values) == 1:
@@ -48,6 +49,17 @@ def count_words(subreddit, word_list, count=0, after="", title_dict={},
                 else:
                     return
                 if value == max_value:
-                    print("{}: {:d}".format(key, title_dict.get(key)))
-                    index = values.index(max_value)
-                    del values[index]
+                    valueCount = values.count(value)
+                    if valueCount == 1:
+                        print("{}: {:d}".format(key, title_dict.get(key)))
+                        index = values.index(max_value)
+                        del values[index]
+                    else:
+                        for k, v in title_dict.items():
+                            if value == v:
+                                key_list.append(k)
+                        key_list.sort()
+                        for key in key_list:
+                            print("{}: {:d}".format(key, title_dict.get(key)))
+                            index = values.index(max_value)
+                            del values[index]
