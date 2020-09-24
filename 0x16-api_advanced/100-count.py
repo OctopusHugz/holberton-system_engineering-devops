@@ -3,7 +3,8 @@
 import requests
 
 
-def count_words(subreddit, word_list, count=0, after="", title_dict={}, word_count=0):
+def count_words(subreddit, word_list, count=0, after="", title_dict={},
+                word_count=0):
     """Prints a sorted count of given keywords listed for a subreddit"""
     user_agent = {'User-agent': 'OctopusHugs/605.1.15'}
     if not after:
@@ -21,10 +22,7 @@ def count_words(subreddit, word_list, count=0, after="", title_dict={}, word_cou
     except:
         return None
     after = data.get('after')
-    try:
-        children = data.get('children')
-    except:
-        return None
+    children = data.get('children')
     for child in children:
         title = child.get('data').get('title').lower().split()
         for word in word_list:
@@ -45,8 +43,10 @@ def count_words(subreddit, word_list, count=0, after="", title_dict={}, word_cou
             for key, value in title_dict.items():
                 if len(values) > 1:
                     max_value = max(values)
-                else:
+                elif len(values) == 1:
                     max_value = values[0]
+                else:
+                    return
                 if value == max_value:
                     print("{}: {:d}".format(key, title_dict.get(key)))
                     index = values.index(max_value)
