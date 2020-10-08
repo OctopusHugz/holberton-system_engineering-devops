@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# This script reloads gunicorn in a graceful way
+killall -s -SIGHUP gunicorn
