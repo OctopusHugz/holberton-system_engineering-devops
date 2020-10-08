@@ -1,0 +1,6 @@
+[Unit]
+Description=gunicorn daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env bash /etc/init.d/gunicorn_sd.sh
