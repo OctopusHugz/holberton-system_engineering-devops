@@ -28,17 +28,15 @@ server {
         }
 
 		location /api/ {
-				add_header 'Access-Control-Allow-Origin' '*' always;
                 proxy_pass http://127.0.0.1:5002;
         }
 
 		location / {
-				add_header 'Access-Control-Allow-Origin' '*' always;
+				try_files $uri $uri/ =404;
 				proxy_pass http://127.0.0.1:5003;
 		}
 
 		location /web_dynamic/static/ {
-				add_header 'Access-Control-Allow-Origin' '*' always;
 				root /home/ubuntu/AirBnB_clone_v4;
 		}
 }
