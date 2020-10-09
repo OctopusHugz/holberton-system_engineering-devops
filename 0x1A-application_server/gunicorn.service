@@ -4,4 +4,7 @@ Description=gunicorn daemon
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/env bash /etc/init.d/gunicorn_sd.sh
+ExecStart=/usr/bin/gunicorn_sd.sh
+
+[Install]
+WantedBy=multi-user.target
