@@ -4,7 +4,7 @@ Description=gunicorn daemon
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/gunicorn_sd.sh
+ExecStart=/home/ubuntu/.local/bin/gunicorn --workers=3 --error-logfile /tmp/airbnb-error.log --access-logfile /tmp/airbnb-access.log --bind 0.0.0.0:5003 AirBnB_clone_v4.web_dynamic.2-hbnb:app
 
 [Install]
 WantedBy=multi-user.target
